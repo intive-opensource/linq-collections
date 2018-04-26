@@ -30,8 +30,6 @@ If you use TypeScript, its purely is based in **generics**.<br /><br />
 Using **ES5**, it has **100% compatibility** with nodejs and all main browsers (+mobile)<br/>
 Check your browser now if you don't believe it -> [![](https://img.shields.io/badge/click-run%20browser%20tests-orange.svg)](https://isc30.github.io/linq-collections/mocha)
 
-[![compatibility](assets/compatibility.jpg)](assets/compatibility.jpg)
-
 ## Performance
 *Linq-Collections* uses custom **iterators** and **deferred execution** mechanisms that ensure **BLAZING FAST** operations, outperforming any other popular library. Its also optimized to work with **minimal CPU and RAM usage**.
 
@@ -58,7 +56,7 @@ dependencies {
 
 ## Features
 Complete **Linq to Objects** implementation (deferred execution)
-> toArray, toList, toDictionary, toLookup, aggregate, all, any, average, concat, contains, count, defaultIfEmpty, distinct, elementAt, elementAtOrDefault, except, first, firstOrDefault, forEach, groupBy, groupJoin, intersect, join, last, lastOrDefault, longCount, max, min, orderBy, orderByDescending, reverse, select, selectMany, sequenceEquals, single, single, singleOrDefault, skip, skipWhile, sum, take, takeWhile, union, where, ...
+> toArray, toList, toDictionary, toLookup, aggregate, all, any, average, concat, contains, count, defaultIfEmpty, distinct, elementAt, elementAtOrDefault, except, first, firstOrDefault, forEach, groupBy, groupJoin, intersect, join, last, lastOrDefault, longCount, max, min, orderBy, orderByDescending, reverse, select, selectMany, sequenceEquals, single, single, singleOrDefault, skip, skipWhile, sum, take, takeWhile, union, where, zip, ...
 
 Collections (+ readonly versions)
 > List, Dictionary, Stack, Queue, ...
@@ -80,3 +78,4 @@ Use `nyc mocha` to run the tests and coverage.
 
 ## Hall of fame
 * [@nikolalukovic](https://github.com/nikolalukovic)
+* [@tholdrim](https://github.com/tholdrim)
