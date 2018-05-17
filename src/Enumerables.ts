@@ -86,7 +86,8 @@ export interface IQueryable<TOut>
 
     // groupJoin
 
-    // intersect
+    intersect(other: IQueryable<TOut>): IEnumerable<TOut>;
+    intersect(other: IQueryable<TOut>, comparer: EqualityComparer<TOut>): IEnumerable<TOut>;
 
     // join
 
@@ -496,6 +497,13 @@ export abstract class EnumerableBase<TElement, TOut> implements IEnumerable<TOut
         }
 
         return dictionary.asEnumerable();
+    }
+
+    public intersect(other: IQueryable<TOut>): IEnumerable<TOut>;
+    public intersect(other: IQueryable<TOut>, comparer: EqualityComparer<TOut>): IEnumerable<TOut>;
+    public intersect(other: IQueryable<TOut>, comparer: EqualityComparer<TOut> = strictEqualityComparer<TOut>()): IEnumerable<TOut>
+    {
+        return new IntersectedEnumerable<TOut>(this, other, comparer);
     }
 
     public last(): TOut;
@@ -1002,6 +1010,18 @@ export class ConcatEnumerable<TElement> extends Enumerable<TElement>
         }
 
         return this.currentValue.value;
+    }
+}
+// endregion
+// region IntersectedEnumerable
+export class IntersectedEnumerable<TElement> extends Enumerable<TElement>
+{
+    private _otherSource: IIterable<TElement>;
+
+    public constructor(source: IEnumerable<TElement>, otherSource: IEnumerable<TElement>, comparer: EqualityComparer<TElement>)
+    {
+        super(source);
+        this._otherSource = otherSource;
     }
 }
 // endregion
